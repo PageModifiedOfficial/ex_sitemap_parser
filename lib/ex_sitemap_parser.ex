@@ -14,7 +14,6 @@ defmodule ExSitemapParser do
 
   """
   def sitemap_for(url) do
-    IO.inspect @fetcher
     url |> @fetcher.get_sitemap |> process_response
   end
 
@@ -33,9 +32,9 @@ defmodule ExSitemapParser do
     {:error, error.reason}
   end
   def process_response({:ok, %HTTPoison.Response{status_code: 200} = response}) do
-    IO.inspect response, label: "Success"
+    {:ok, response.body}
   end
   def process_response({:ok, %HTTPoison.Response{} = response}) do
-    IO.inspect response, label: "Success???"
+    {:error, "Response Code: #{response.status_code}"}
   end
 end
