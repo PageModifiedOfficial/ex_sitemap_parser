@@ -4,7 +4,7 @@ defmodule ExSitemapParser do
   """
 
   @doc """
-  Hello world.
+  Get Map
 
   ## Examples
 
@@ -12,7 +12,10 @@ defmodule ExSitemapParser do
       :world
 
   """
-  def hello do
-    :world
+  def get_map(url) do
+    case HTTPoison.get(url) do
+      {:ok, response} -> IO.inspect response
+      {:error, msg} -> IO.inspect msg
+    end
   end
 end
