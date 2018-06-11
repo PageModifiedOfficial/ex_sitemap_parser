@@ -30,9 +30,12 @@ defmodule ExSitemapParser do
 
   """
   def process_response({:error, %HTTPoison.Error{} = error}) do
-    IO.inspect error, label: "Error"
+    {:error, error.reason}
+  end
+  def process_response({:ok, %HTTPoison.Response{status_code: 200} = response}) do
+    IO.inspect response, label: "Success"
   end
   def process_response({:ok, %HTTPoison.Response{} = response}) do
-    IO.inspect response, label: "Success"
+    IO.inspect response, label: "Success???"
   end
 end
