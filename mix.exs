@@ -23,6 +23,7 @@ defmodule ExSitemapParser.MixProject do
     [
       {:sweet_xml, "~> 0.6.5"},
       {:httpoison, "~> 1.0.0"},
+      {:mox, "~> 0.3", only: :test}
     ]
   end
 end

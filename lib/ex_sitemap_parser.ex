@@ -1,4 +1,5 @@
 defmodule ExSitemapParser do
+  @fetcher Application.get_env(:ex_sitemap_parser, :fetcher)
   @moduledoc """
   Documentation for ExSitemapParser.
   """
@@ -8,25 +9,29 @@ defmodule ExSitemapParser do
 
   ## Examples
 
-      iex> ExSitemapParser.hello
+      iex> ExSitemapParser.sitemap_for("http://www.test.com/sitemap.xml")
       :world
 
   """
   def sitemap_for(url) do
-    url |> get_map |> process_response
+    url |> @fetcher.get_sitemap |> process_response
   end
 
-  def get_map(url) do
-    case HTTPoison.get(url) do
-      {:ok, response} -> response
-      {:error, msg} -> msg
-    end
-  end
+  @doc """
+  Get Map
 
-  def process_response(%HTTPoison.Error{} = response) do
-    IO.inspect response, label: "Error"
+  ## Examples
+
+      iex> ExSitemapParser.process_response(%HTTPoison.Error{})
+      :world
+      iex> ExSitemapParser.process_response(%HTTPoison.Response{})
+      :world
+
+  """
+  def process_response({:error, %HTTPoison.Error{} = error}) do
+    IO.inspect error, label: "Error"
   end
-  def process_response(%HTTPoison.Response{} = response) do
+  def process_response({:ok, %HTTPoison.Response{} = response}) do
     IO.inspect response, label: "Success"
   end
 end
