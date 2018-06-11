@@ -14,6 +14,7 @@ defmodule ExSitemapParser do
 
   """
   def sitemap_for(url) do
+    IO.inspect @fetcher
     url |> @fetcher.get_sitemap |> process_response
   end
 

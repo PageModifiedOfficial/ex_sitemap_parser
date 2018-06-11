@@ -30,3 +30,4 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 
 config :ex_sitemap_parser, :fetcher, ExSitemapParser.Fetcher.HttpClient
+import_config "#{Mix.env}.exs"
