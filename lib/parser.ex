@@ -4,8 +4,8 @@ defmodule ExSitemapParser.Parser do
 
   def parse!(doc) do
     case doc |> SweetXml.xpath(~x"//sitemapindex"o) |> is_nil do
-      true -> ExSitemapParser.Parser.Sitemap(doc)
-      false -> ExSitemapParser.Parser.SitemapIndex(doc)
+      true -> ExSitemapParser.Parser.Sitemap.parse(doc)
+      false -> ExSitemapParser.Parser.SitemapIndex.parse(doc)
     end
   end
 end
@@ -14,8 +14,8 @@ defmodule ExSitemapParser.Parser.SitemapIndex do
   import SweetXml
   @behaviour ExSitemapParser.Parser
   @schema [
-      urls: [ ~x[//sitemapindex/sitemap/loc]l,
-        url: ~x[./text()]s
+      sitemaps: [ ~x[//sitemapindex/sitemap/loc]l,
+        sitemap: ~x[./text()]s
       ]
     ]
 
