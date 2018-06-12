@@ -20,7 +20,11 @@ defmodule ExSitemapParser.Parser.SitemapIndex do
     ]
 
   def parse(doc) do
-    doc |> SweetXml.xmap(@schema)
+    doc |> SweetXml.xmap(@schema) |> get_sitemaps
+  end
+
+  def get_sitemaps(sitemaps) do
+    sitemaps[:sitemaps] |> Enum.map(fn sitemap -> ExSitemapParser.sitemap_for(sitemap[:sitemap]) end)
   end
 end
 
