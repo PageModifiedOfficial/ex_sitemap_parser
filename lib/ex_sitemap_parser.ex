@@ -1,5 +1,6 @@
 defmodule ExSitemapParser do
   @fetcher Application.get_env(:ex_sitemap_parser, :fetcher)
+
   @moduledoc """
   Documentation for ExSitemapParser.
   """
@@ -15,7 +16,7 @@ defmodule ExSitemapParser do
   """
   def sitemap_for(url) do
     case url |> @fetcher.get_sitemap |> process_response do
-      {:ok, doc} -> ExSitemapParser.Parser.parse(doc)
+      {:ok, doc} -> ExSitemapParser.Parser.parse!(doc)
       {:error, reason} -> reason
     end
   end
