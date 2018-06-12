@@ -6,6 +6,10 @@ defmodule ExSitemapParser.MixProject do
       app: :ex_sitemap_parser,
       version: "0.1.0",
       elixir: "~> 1.6",
+      description: "Tool for parsing sitemaps and sitemap indices",
+      licenses: "MIT",
+      maintainers: "ValleyHosting, refriedchicken",
+      links: "https://github.com/ValleyHosting/ex_sitemap_parser",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
