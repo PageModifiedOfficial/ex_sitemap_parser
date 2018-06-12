@@ -42,7 +42,7 @@ defmodule ExSitemapParser.MixProject do
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/ValleyHosting/ex_sitemap_parser"},
-      maintainers: "refriedchicken"
+      maintainers: ["refriedchicken"]
     ]
   end
 end
