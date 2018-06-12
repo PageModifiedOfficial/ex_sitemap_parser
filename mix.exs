@@ -6,10 +6,8 @@ defmodule ExSitemapParser.MixProject do
       app: :ex_sitemap_parser,
       version: "0.1.0",
       elixir: "~> 1.6",
-      description: "Tool for parsing sitemaps and sitemap indices",
-      licenses: "MIT",
-      maintainers: "ValleyHosting, refriedchicken",
-      links: "https://github.com/ValleyHosting/ex_sitemap_parser",
+      description: description(),
+      package: package(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -28,6 +26,22 @@ defmodule ExSitemapParser.MixProject do
       {:sweet_xml, "~> 0.6.5"},
       {:httpoison, "~> 1.0.0"},
       {:mox, "~> 0.3", only: :test}
+    ]
+  end
+
+  defp description() do
+    "Tool for parsing sitemaps and sitemap indices"
+  end
+
+  defp package() do
+    [
+      # This option is only needed when you don't want to use the OTP application name
+      name: "postgrex",
+      # These are the default files included in the package
+      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],=
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/ValleyHosting/ex_sitemap_parser"},
+      maintainers: "refriedchicken"
     ]
   end
 end
