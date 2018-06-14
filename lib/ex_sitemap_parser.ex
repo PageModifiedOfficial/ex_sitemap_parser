@@ -15,6 +15,7 @@ defmodule ExSitemapParser do
 
   """
   def sitemap_for(url) do
+    IO.inspect @fetcher, label: "Fetcher"
     case url |> @fetcher.get_sitemap |> process_response do
       {:ok, doc} -> ExSitemapParser.Parser.parse!(doc)
       {:error, reason} -> reason
