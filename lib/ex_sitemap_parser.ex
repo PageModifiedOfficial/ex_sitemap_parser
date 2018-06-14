@@ -1,5 +1,5 @@
 defmodule ExSitemapParser do
-  @fetcher Application.get_env(:ex_sitemap_parser, :fetcher)
+  @fetcher Application.get_env(:ex_sitemap_parser, :fetcher) || ExSitemapParser.Fetcher.HttpClient
 
   @moduledoc """
   Documentation for ExSitemapParser.
