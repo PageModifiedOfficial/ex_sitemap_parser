@@ -4,7 +4,7 @@ defmodule ExSitemapParser.MixProject do
   def project do
     [
       app: :ex_sitemap_parser,
-      version: "0.1.1",
+      version: "0.1.2",
       elixir: "~> 1.6",
       description: description(),
       package: package(),
