@@ -33,6 +33,6 @@ defmodule ExSitemapParser.Parser.Sitemap do
   @behaviour ExSitemapParser.Parser
 
   def parse(doc) do
-    doc |> SweetXml.xpath( ~x"//urlset/url/loc/text()"l ) |> Enum.uniq
+    doc |> SweetXml.xpath( ~x"//urlset/url/loc/text()"sl ) |> Enum.uniq
   end
 end
