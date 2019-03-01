@@ -4,7 +4,7 @@ defmodule ExSitemapParser.MixProject do
   def project do
     [
       app: :ex_sitemap_parser,
-      version: "0.1.2",
+      version: "0.1.3",
       elixir: "~> 1.6",
       description: description(),
       package: package(),
@@ -24,7 +24,7 @@ defmodule ExSitemapParser.MixProject do
   defp deps do
     [
       {:sweet_xml, "~> 0.6.5"},
-      {:httpoison, "~> 1.0.0"},
+      {:httpoison, "~> 1.5.0"},
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:mox, "~> 0.3", only: :test}
     ]
